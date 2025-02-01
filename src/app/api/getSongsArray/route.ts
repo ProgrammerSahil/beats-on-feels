@@ -7,11 +7,12 @@ const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 export async function GET(request: NextRequest) {
 
     const mood = request.nextUrl.searchParams.get("mood");
+    const songNumber = request.nextUrl.searchParams.get("songNumber");
 
 
         const prompt = `
         Act as a music curator specializing in mood-based playlists. 
-        Generate 10 songs that match the following mood/theme: ${mood}.
+        Generate ${songNumber} songs that match the following mood/theme: ${mood}.
 
         Format rules:
         1. List ONLY song titles and artists separated by " - ".

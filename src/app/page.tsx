@@ -9,14 +9,15 @@ interface ApiResponse {
 }
 
 export default function Home() {
-  const mood = "relaxed mind but feeling strong for the gym";
+  const mood = "like im driving in miami in the 80s";
+  const songNumber = 25;
 
   const [songs, setSongs] = useState<string[]>([]);
 
   useEffect(() => {
     const getSongs = async () => {
       try {
-        const response = await axios.get<ApiResponse>(`/api/getSongsArray?mood=${mood}`);
+        const response = await axios.get<ApiResponse>(`/api/getSongsArray?mood=${mood}&songNumber=${songNumber}`);
         
         
         const result = response.data.result;
