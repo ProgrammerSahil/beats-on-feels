@@ -19,6 +19,7 @@ export async function GET(request: NextRequest) {
         3. Include a mix of popular and lesser-known tracks.
         4. Prioritize songs where lyrics, tempo, or genre match the mood.
         5. Avoid markdown formatting, respond in plain text only.
+        6. Give different songs each time i prompt you
 
         Example output:
         Song Title 1 - Artist 1 | Song Title 2 - Artist 2 | ... | Song Title 10 - Artist 10
