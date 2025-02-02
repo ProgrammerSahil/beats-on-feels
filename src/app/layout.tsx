@@ -1,6 +1,14 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Playwrite_IN} from "next/font/google";
 import "./globals.css";
+
+
+const playwrite = ({
+  subsets: ['latin'],
+  weight: ['100', '200', '300', '400'],
+  display: 'swap',
+  variable: '--font-playwrite',
+})
 
 
 
@@ -15,7 +23,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${playwrite.variable}`} >
       <body
         
       >
