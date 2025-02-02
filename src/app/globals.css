@@ -3,12 +3,26 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #1a1625;  
+  --secondaryBackground: #241c35;  
+  --containerBackground: #2d2344; 
+  --foreground: #ffffff;  
+  --text: #e2dff0;  
+  --accent: #8a5cff;  
+  --accent-secondary: #4cc9ff; 
+  --gradient-start: #4cc9ff;
+  --gradient-end: #c961ff; 
 }
 
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Inter', Arial, Helvetica, sans-serif; 
+}
+
+/* Optional: Add gradient utility class */
+.gradient-text {
+  background: linear-gradient(45deg, var(--gradient-start), var(--gradient-end));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
