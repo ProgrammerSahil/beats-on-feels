@@ -2,6 +2,7 @@
 
 import axios from "axios";
 import { useEffect, useState } from "react";
+import SpotifyButton from "./components/SpotifyButton";
 
 interface ApiResponse {
   result: string;
@@ -73,6 +74,7 @@ export default function Home() {
           </button>
         ) : (
           <div className="mt-8 space-y-4">
+            <SpotifyButton mood={mood} songs={songs} />
             {songs.map((song, index) => (
               <div 
                 key={index} 
