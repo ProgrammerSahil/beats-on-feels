@@ -25,7 +25,7 @@ export async function GET(req: NextRequest) {
     (await cookieStore).delete('spotify_mood');
     (await cookieStore).delete('spotify_songs');
 
-    // Rest of the code remains the same...
+    
     // Exchange code for tokens
     const tokenResponse = await axios.post(
       "https://accounts.spotify.com/api/token",

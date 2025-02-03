@@ -8,25 +8,29 @@ interface ApiResponse {
   result: string;
 }
 
+
+
 export default function Home() {
-  const mood = "like im a pro wrestler with the energy that matches peak aj styles, kurt angle and cm punk angle with intense energy";
+  const mood = "80s pop songs like self control, maria magdalena, in the heat of the night etc etc";
   const songNumber = 20;
 
   const [songs, setSongs] = useState<string[]>([]);
   const [loading, setLoading] = useState(true);
 
+  const getSongs = async () => {
+    try {
+      const response = await axios.get<ApiResponse>(`/api/getSongsArray?mood=${mood}&songNumber=${songNumber}`);
+      const result = response.data.result;
+      const songsArray = result.split("|");
+      setSongs(songsArray);
+      setLoading(false);
+    } catch (error) {
+      console.error("Error fetching songs:", error);
+    }
+  };
+
+
   useEffect(() => {
-    const getSongs = async () => {
-      try {
-        const response = await axios.get<ApiResponse>(`/api/getSongsArray?mood=${mood}&songNumber=${songNumber}`);
-        const result = response.data.result;
-        const songsArray = result.split("|");
-        setSongs(songsArray);
-        setLoading(false);
-      } catch (error) {
-        console.error("Error fetching songs:", error);
-      }
-    };
     getSongs();
   }, []);
 
