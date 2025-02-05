@@ -45,7 +45,7 @@ export default function Home() {
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-12">
           <h1 className="text-5xl font-bold mb-4 py-4 gradient-text tracking-tighter">
-            Welcome to <span className="font-playwrite"> Feels on Beat </span>
+            <span className="font-playwrite"> Feels on Beat </span>
           </h1>
           <div className="text-xl text-[var(--text)] opacity-90">
             Generate a playlist based on your mood

@@ -41,7 +41,7 @@ const SpotifyButton = ({ mood, songs }: SpotifyButtonProps) => {
         disabled={loading}
         className="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded disabled:opacity-50"
       >
-        {loading ? "Connecting to Spotify..." : "Create Spotify Playlist"}
+        {loading ? "Connecting to Spotify..." : "Save on Spotify"}
       </button>
       {error && <p className="text-red-500 text-sm">{error}</p>}
     </div>
