@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Playwrite_IN, Inter } from "next/font/google";
+import { Analytics } from "@vercel/analytics/react"
 import "./globals.css";
 
 // Configure Playwrite font (adjust based on actual available properties)
@@ -32,6 +33,7 @@ export default function RootLayout({
     <html lang="en" className={`${playwrite.variable} ${inter.variable}`}>
       <body className={`${inter.className} min-h-screen bg-[var(--background)] text-[var(--text)]`}>
         {children}
+        <Analytics />
       </body>
     </html>
   );
