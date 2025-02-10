@@ -19,7 +19,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Feels on Beat",
+  title: "Beats on Feels",
   description: "Generate playlists based on your mood",
 };
 
