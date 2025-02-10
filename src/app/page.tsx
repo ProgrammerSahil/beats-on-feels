@@ -116,9 +116,19 @@ export default function Home() {
                   <div
                     key={index}
                     className="p-4 rounded-lg bg-[var(--containerBackground)] 
-                            hover:bg-[var(--accent)] transition-colors duration-200
-                            text-[var(--text)] hover:text-white cursor-pointer
-                            shadow-md"
+              hover:bg-[var(--accent)] transition-colors duration-200
+              text-[var(--text)] hover:text-white cursor-pointer
+              shadow-md"
+                    onClick={async () => {
+                      try {
+                        const response = await axios.get(
+                          `/api/redirectToSpotifySong?song=${encodeURIComponent(song)}`
+                        );
+                        window.open(response.data.url, "_blank");
+                      } catch (error) {
+                        console.error("Error opening song:", error);
+                      }
+                    }}
                   >
                     <span className="text-[var(--accent-secondary)] mr-3">
                       #{index + 1}

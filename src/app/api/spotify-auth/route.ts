@@ -62,7 +62,7 @@ export async function GET(req: NextRequest) {
       songs.map(async (song: string) => {
         try {
           const searchResponse = await axios.get(
-            `https://api.spotify.com/v1/search?q=${encodeURIComponent(song)}&type=track&limit=1`,
+            `https://api.spotify.com/v1/search?q=${encodeURIComponent(song)}&type=track&limit=1`, //fetch individual song
             {
               headers: {
                 Authorization: `Bearer ${tokenResponse.data.access_token}`,
