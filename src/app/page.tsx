@@ -55,7 +55,7 @@ export default function Home() {
             <div className="w-full max-w-md flex flex-col md:flex-row gap-4 md:gap-4">
               <input
                 type="text"
-                placeholder="Enter your mood (e.g. joyful, melancholic, energetic...)"
+                placeholder="like a 90s bollywood hopeless romantic"
                 className="w-full px-6 py-4 rounded-2xl bg-[var(--containerBackground)] 
                 text-[var(--text)] placeholder-[var(--text-secondary)]
                 border-2 border-[var(--accent-secondary)] focus:outline-none
