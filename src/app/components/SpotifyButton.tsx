@@ -23,7 +23,7 @@ const SpotifyButton = ({ mood, songs }: SpotifyButtonProps) => {
       document.cookie = `spotify_mood=${encodeURIComponent(mood)}; path=/; SameSite=Lax`;
       document.cookie = `spotify_songs=${encodeURIComponent(JSON.stringify(songs))}; path=/; SameSite=Lax`;
   
-      const clientId = process.env.SPOTIFY_CLIENT_ID!;
+      const clientId = process.env.NEXT_PUBLIC_SPOTIFY_CLIENT_ID;
       const redirectUri = encodeURIComponent(`${window.location.origin}/api/spotify-auth`);
       const scope = encodeURIComponent("playlist-modify-public");
       
