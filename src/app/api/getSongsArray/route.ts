@@ -4,6 +4,7 @@ import { NextRequest, NextResponse } from "next/server";
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_KEY!);
 const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
+
 export async function GET(request: NextRequest) {
 
     const mood = request.nextUrl.searchParams.get("mood");

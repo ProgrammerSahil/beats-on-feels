@@ -1,7 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import axios from "axios";
 import { cookies } from 'next/headers';
-
 export async function GET(req: NextRequest) {
   try {
     const code = req.nextUrl.searchParams.get("code");
