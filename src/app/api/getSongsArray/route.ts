@@ -11,21 +11,26 @@ export async function GET(request: NextRequest) {
     const songNumber = request.nextUrl.searchParams.get("songNumber");
 
 
-        const prompt = `
-        Act as a music curator specializing in mood-based playlists. 
-        Generate ${songNumber} songs that match the following mood/theme: ${mood}.
+    const prompt = `
+Act as a music curator specializing in mood-based and culturally relevant playlists. Generate ${songNumber} songs that match the following prompt: ${mood}.
 
-        Format rules:
-        1. List ONLY song titles and artists separated by " - ".
-        2. Separate each entry with a "|" character, no numbers or bullet points.
-        3. Include a mix of popular and lesser-known tracks.
-        4. Prioritize songs where lyrics, tempo, or genre match the mood.
-        5. Avoid markdown formatting, respond in plain text only.
-        6. Give different songs each time i prompt you
+When generating the list:
+- If the prompt specifies a particular language or cultural context (e.g., 'French songs,' 'Bollywood hits'), prioritize songs from that language or culture.
+- If a specific country or region is mentioned without specifying a language or culture, prioritize songs that are popular, traditional, or culturally significant in that area, preferably in the local language.
+- If no country, region, language, or culture is specified, focus on a diverse mix of songs that match the mood or theme.
+- Include a mix of popular and lesser-known tracks.
+- Prioritize songs where lyrics, tempo, or genre match the mood.
+- Ensure the list is fresh and varied each time.
 
-        Example output:
-        Song Title 1 - Artist 1 | Song Title 2 - Artist 2 | ... | Song Title 10 - Artist 10
-        `;
+Format rules:
+1. List ONLY song titles and artists separated by " - ".
+2. Separate each entry with a "|" character.
+3. Do not include numbers, bullet points, or extra text.
+4. Respond in plain text only.
+
+Example output:
+Song Title 1 - Artist 1 | Song Title 2 - Artist 2 | ... | Song Title 10 - Artist 10
+`;
 
     
     try{
