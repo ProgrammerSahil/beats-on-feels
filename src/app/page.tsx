@@ -9,7 +9,7 @@ interface ApiResponse {
 }
 
 export default function Home() {
-  const songNumber = 20;
+  const [songNumber, setSongNumber] = useState(20);
 
   const [songs, setSongs] = useState<string[]>([]);
   const [loading, setLoading] = useState(true);
@@ -73,6 +73,32 @@ export default function Home() {
               >
                 Generate Mix
               </button>
+            </div>
+            
+            <div className="w-full max-w-md px-4">
+              <div className="flex justify-between mb-2">
+                <span className="text-sm text-[var(--text-secondary)]">Fewer songs</span>
+                <span className="text-sm font-medium text-[var(--accent)]">{songNumber} songs</span>
+                <span className="text-sm text-[var(--text-secondary)]">More songs</span>
+              </div>
+              <input 
+                type="range" 
+                min="5" 
+                max="50" 
+                value={songNumber} 
+                className="w-full h-2 bg-[var(--containerBackground)] rounded-lg appearance-none cursor-pointer accent-[var(--accent)]"
+                style={{
+                  background: `linear-gradient(to right, var(--accent) 0%, var(--accent) ${(songNumber - 5) * 100 / 45}%, var(--containerBackground) ${(songNumber - 5) * 100 / 45}%, var(--containerBackground) 100%)`
+                }}
+                onChange={(e) => setSongNumber(parseInt(e.target.value))} 
+                id="myRange"
+              />
+              <div className="flex justify-between mt-1 text-xs text-[var(--text-secondary)]">
+                <span>5</span>
+                <span>20</span>
+                <span>35</span>
+                <span>50</span>
+              </div>
             </div>
           </div>
         </div>
