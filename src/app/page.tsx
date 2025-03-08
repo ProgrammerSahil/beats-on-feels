@@ -10,12 +10,18 @@ interface ApiResponse {
 
 export default function Home() {
   const [songNumber, setSongNumber] = useState(20);
-
   const [songs, setSongs] = useState<string[]>([]);
   const [loading, setLoading] = useState(true);
   const [buttonPress, setButtonPress] = useState(false);
-
   const [mood, setMood] = useState("");
+
+  // Preset mood options
+  const presetMoods = [
+    { label: "Gym Mood 💪", value: "energetic workout music to push through the final rep" },
+    { label: "80s Pop 🎵", value: "nostalgic 80s pop hits with synth and big hair energy" },
+    { label: "Chill Vibes 😌", value: "relaxing ambient music for studying or working" },
+    { label: "Road Trip 🚗", value: "upbeat songs perfect for a long drive with friends" }
+  ];
 
   const getSongs = async () => {
     try {
@@ -37,6 +43,10 @@ export default function Home() {
     getSongs();
   };
 
+  const handlePresetClick = (presetValue: string) => {
+    setMood(presetValue);
+  };
+
   return (
     <div
       className="min-h-screen p-8"
@@ -47,15 +57,15 @@ export default function Home() {
           <h1 className="text-5xl font-bold mb-4 py-4 gradient-text tracking-tighter">
             <span className="font-playwrite"> Beats on Feels </span>
           </h1>
-          <div className="text-xl text-[var(--text)] opacity-90">
+          <div className="text-xl text-[var(--text)] opacity-90 mb-8">
             Generate a playlist based on your mood
           </div>
 
-          <div className="flex flex-col items-center gap-6 mt-8">
+          <div className="flex flex-col items-center gap-6">
             <div className="w-full max-w-md flex flex-col md:flex-row gap-4 md:gap-4">
               <input
                 type="text"
-                placeholder="like a 90s bollywood hopeless romantic"
+                placeholder="Enter a mood here..."
                 className="w-full px-6 py-4 rounded-2xl bg-[var(--containerBackground)] 
                 text-[var(--text)] placeholder-[var(--text-secondary)]
                 border-2 border-[var(--accent-secondary)] focus:outline-none
@@ -98,6 +108,27 @@ export default function Home() {
                 <span>20</span>
                 <span>35</span>
                 <span>50</span>
+              </div>
+            </div>
+            
+            {/* Preset mood buttons - now below the main input elements */}
+            <div className="w-full max-w-md mt-4">
+              <div className="text-sm text-[var(--text-secondary)] mb-2 text-center">
+                Or try one of these moods:
+              </div>
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+                {presetMoods.map((preset, index) => (
+                  <button
+                    key={index}
+                    onClick={() => handlePresetClick(preset.value)}
+                    className="px-3 py-2 rounded-lg bg-[var(--containerBackground)] 
+                    text-[var(--text-secondary)] hover:text-[var(--text)]
+                    border border-[var(--containerBackground)] hover:border-[var(--accent-secondary)]
+                    transition-all duration-200 text-sm shadow-sm"
+                  >
+                    {preset.label}
+                  </button>
+                ))}
               </div>
             </div>
           </div>
