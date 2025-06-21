@@ -52,6 +52,7 @@ export default function Home() {
       className="min-h-screen p-8"
       style={{ background: "var(--background)" }}
     >
+    
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-12">
           <h1 className="text-5xl font-bold mb-4 py-4 gradient-text tracking-tighter">

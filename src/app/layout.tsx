@@ -32,14 +32,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${playwrite.variable} ${inter.variable}`}>
-    
-      <body className={`${inter.className} min-h-screen bg-[var(--background)] text-[var(--text)]`}>
-      <Script
+      <head>
+        <Script
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4938441116155197"
           crossOrigin="anonymous"
-          strategy="afterInteractive"
+          strategy="beforeInteractive"
         />
+      </head>
+      <body className={`${inter.className} min-h-screen bg-[var(--background)] text-[var(--text)]`}>
         {children}
         <Analytics />
       </body>
