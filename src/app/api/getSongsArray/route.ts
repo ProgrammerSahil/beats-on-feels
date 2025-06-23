@@ -27,6 +27,7 @@ Format rules:
 2. Separate each entry with a "|" character.
 3. Do not include numbers, bullet points, or extra text.
 4. Respond in plain text only.
+5. If the prompt has a genre name, DO NOT suggest songs outside that genre
 
 Example output:
 Song Title 1 - Artist 1 | Song Title 2 - Artist 2 | ... | Song Title 10 - Artist 10
