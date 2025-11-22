@@ -2,7 +2,7 @@ import { GoogleGenerativeAI } from "@google/generative-ai";
 import { NextRequest, NextResponse } from "next/server";
 
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_KEY!);
-const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
 
 
 export async function GET(request: NextRequest) {
@@ -40,6 +40,7 @@ Song Title 1 - Artist 1 | Song Title 2 - Artist 2 | ... | Song Title 10 - Artist
             result: result.response.text()
         })
     } catch(error: any){
+        console.log(error);
         return NextResponse.json(
             { error: error.message },
             { status: 500 }
